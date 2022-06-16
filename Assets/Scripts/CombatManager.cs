@@ -37,6 +37,11 @@ public class CombatManager : MonoBehaviour
     
     public void HandleTurn(CharacterBase character, int damage)
     {
+        if (character.currentHealth <= 0)
+        {
+            return;
+        }
+        
         character.TakeDamage(damage);
         character.healthBar.SetHealth(character.currentHealth);
     }

@@ -10,6 +10,9 @@ namespace UI
     {
         [SerializeField] private TMP_Text combatTurn;
 
+        [SerializeField] private TMP_Text playerLastAction;
+        [SerializeField] private TMP_Text enemyLastAction;
+
         [SerializeField] private Button attackButton;
 
         public void Start()
@@ -25,35 +28,46 @@ namespace UI
 
         private IEnumerator AttackHandler()
         {
-            Debug.Log("Attack " + CombatManager.Instance.playerBase.baseStats.attack);
+            var randomValue = CombatManager.Instance.playerBase.baseStats.speed >
+                              CombatManager.Instance.enemyBase.baseStats.speed;
 
-            var randomValue = UnityEngine.Random.value > 0.5f;
-
+            int attack;
             if (randomValue)
             {
-                CombatManager.Instance.HandleTurn(CombatManager.Instance.enemyBase,
-                    CombatManager.Instance.playerBase.baseStats.attack);
+                PlayerUITurn();
                 yield return new WaitForSeconds(1f);
-                CombatManager.Instance.HandleTurn(CombatManager.Instance.playerBase,
-                    CombatManager.Instance.enemyBase.baseStats.attack);
+                EnemyUITurn();
                 yield return new WaitForSeconds(1f);
             }
             else
             {
-                CombatManager.Instance.HandleTurn(CombatManager.Instance.playerBase,
-                    CombatManager.Instance.enemyBase.baseStats.attack);
+                EnemyUITurn();
                 yield return new WaitForSeconds(1f);
-                CombatManager.Instance.HandleTurn(CombatManager.Instance.enemyBase,
-                    CombatManager.Instance.playerBase.baseStats.attack);
+                PlayerUITurn();
                 yield return new WaitForSeconds(1f);
             }
-            
+
             CombatManager.Instance.currentTurn++;
-            SetTurn();
+            SetTextTurn();
+            
             attackButton.onClick.AddListener(Attack);
         }
 
-        private void SetTurn()
+        private void PlayerUITurn()
+        {
+            var attack = CombatManager.Instance.playerBase.baseStats.GetAttack();
+            CombatManager.Instance.HandleTurn(CombatManager.Instance.enemyBase, attack);
+            playerLastAction.text = $"Player Attack: {attack}";
+        }
+        
+        private void EnemyUITurn()
+        {
+            var attack = CombatManager.Instance.enemyBase.baseStats.GetAttack();
+            CombatManager.Instance.HandleTurn(CombatManager.Instance.playerBase, attack);
+            enemyLastAction.text = $"Enemy Attack: {attack}";
+        }
+
+        private void SetTextTurn()
         {
             combatTurn.text = $"Turn {CombatManager.Instance.currentTurn}";
         }
