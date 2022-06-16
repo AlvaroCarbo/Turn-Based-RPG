@@ -4,7 +4,7 @@ public abstract class CharacterBase : MonoBehaviour
 {
     public int currentHealth;
 
-    public BaseStats baseStats;
+    public BaseStats stats;
     
     public HealthBar healthBar;
     
@@ -13,7 +13,7 @@ public abstract class CharacterBase : MonoBehaviour
         SetMaxHealth();
     }
 
-    private void SetMaxHealth() => currentHealth = (int) baseStats.health;
+    private void SetMaxHealth() => currentHealth = (int) stats.health;
 
     public void TakeDamage(int damage)
     {
@@ -26,6 +26,6 @@ public abstract class CharacterBase : MonoBehaviour
 
     private void Die()
     {
-        Debug.Log("Dead");
+        CombatManager.Instance.state = CombatState.Finished;
     }
 }

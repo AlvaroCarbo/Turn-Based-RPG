@@ -9,7 +9,8 @@ namespace UI
     {
         [SerializeField] private List<TMP_Text> statsValues;
         [SerializeField] private BaseStats baseStats;
-        void Start()
+
+        private void Start()
         {
             foreach (Transform child in transform)
             {
