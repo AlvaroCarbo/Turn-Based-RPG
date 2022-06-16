@@ -88,10 +88,16 @@ public class CombatManager : MonoBehaviour
         switch (state)
         {
             case CombatState.PlayerTurn:
-                PlayerAttack();
+                if (player.stats.GetAccuracy()) 
+                {
+                    PlayerAttack();
+                }
                 break;
             case CombatState.EnemyTurn:
-                EnemyAttack();
+                if (enemy.stats.GetAccuracy())
+                {
+                    EnemyAttack();
+                }
                 break;
             case CombatState.Waiting:
             case CombatState.Finished:
@@ -102,7 +108,8 @@ public class CombatManager : MonoBehaviour
 
     private void PlayerAttack()
     {
-        var playerDamage = player.stats.GetAttack();
+        
+        var playerDamage = player.stats.GetAttack();        
         CombatUIController.Instance.SetPlayerLastAttack(enemy.TakeDamage(playerDamage) ? playerDamage : 0);
     }
 

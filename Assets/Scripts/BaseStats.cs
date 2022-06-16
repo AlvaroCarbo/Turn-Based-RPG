@@ -34,4 +34,19 @@ public class BaseStats : ScriptableObject
 
         return attack;
     }
+
+    public bool GetAccuracy() => Random.Range(0, 100) <= accuracy;
+    
+
+    public float GetLuck()
+    {
+        var random = Random.Range(0, 100);
+        if (random <= luck)
+        {
+            return luck;
+        }
+        return 0;
+    }
+    
+    
 }

@@ -24,12 +24,12 @@ namespace EditorScripts
                 // mana// stamina// luck// speed// attack// defense// resistance// accuracy// evasion// critical
                 myScript.GetComponent<CharacterBase>().stats.mana = Random.Range(10, 100);
                 myScript.GetComponent<CharacterBase>().stats.stamina = Random.Range(10, 100);
-                myScript.GetComponent<CharacterBase>().stats.luck = Random.Range(10, 100);
+                myScript.GetComponent<CharacterBase>().stats.luck = Random.Range(0, 10);
                 myScript.GetComponent<CharacterBase>().stats.speed = Random.Range(10, 100);
                 myScript.GetComponent<CharacterBase>().stats.attack = Random.Range(10, 200);
                 myScript.GetComponent<CharacterBase>().stats.defense = Random.Range(10, 100);
                 myScript.GetComponent<CharacterBase>().stats.resistance = Random.Range(10, 100);
-                myScript.GetComponent<CharacterBase>().stats.accuracy = Random.Range(10, 100);
+                myScript.GetComponent<CharacterBase>().stats.accuracy = Random.Range(80, 100);
                 myScript.GetComponent<CharacterBase>().stats.evasion = Random.Range(10, 40);
                 myScript.GetComponent<CharacterBase>().stats.critical = Random.Range(10, 100);
             }
