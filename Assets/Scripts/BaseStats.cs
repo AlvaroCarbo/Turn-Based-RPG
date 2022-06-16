@@ -5,28 +5,27 @@ using UnityEngine;
 public class BaseStats : ScriptableObject
 {
     public int level;
-    [Space] [Header("Base Stats")] 
-    public float health;
-    [HideInInspector] public float mana;
-    [HideInInspector] public float stamina;
-    [HideInInspector] public float luck;
-    public float speed;
+    [Space] [Header("Base Stats")] public int health;
+    [HideInInspector] public int mana;
+    [HideInInspector] public int stamina;
+    public int luck;
+    public int speed;
     public int attack;
-    [HideInInspector] public float defense;
-    [HideInInspector] public float resistance;
-    [HideInInspector] public float accuracy;
-    public float evasion;
-    [Range(0, 100)] public float critical;
+    [HideInInspector] public int defense;
+    [HideInInspector] public int resistance;
+    public int accuracy;
+    public int evasion;
+    [Range(0, 100)] public int critical;
 
-    public List<float> GetStats()
+    public List<int> GetStats()
     {
-        return new List<float>
+        return new List<int>
             {health, mana, stamina, luck, speed, attack, defense, resistance, accuracy, evasion, critical};
     }
 
-    public int GetAttack()
+    public int CalculateAttack()
     {
-        var random = Random.Range(0, 100);
+        var random = Random.Range(1, 101);
         if (random <= critical)
         {
             return attack * 2;
@@ -35,18 +34,8 @@ public class BaseStats : ScriptableObject
         return attack;
     }
 
-    public bool GetAccuracy() => Random.Range(0, 100) <= accuracy;
+    public bool CalculateAccuracy() => Random.Range(1, 101) <= accuracy;
     
-
-    public float GetLuck()
-    {
-        var random = Random.Range(0, 100);
-        if (random <= luck)
-        {
-            return luck;
-        }
-        return 0;
-    }
-    
+    public int CalculateLuck() => Random.Range(0, luck + 1);
     
 }

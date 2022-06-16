@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: Player
   m_EditorClassIdentifier: 
   level: 1
-  health: 593
-  mana: 59
-  stamina: 20
-  luck: 90
-  speed: 77
-  attack: 36
-  defense: 96
-  resistance: 51
-  accuracy: 12
-  evasion: 13
-  critical: 79
+  health: 100
+  mana: 24
+  stamina: 96
+  luck: 25
+  speed: 71
+  attack: 10
+  defense: 11
+  resistance: 41
+  accuracy: 80
+  evasion: 10
+  critical: 30

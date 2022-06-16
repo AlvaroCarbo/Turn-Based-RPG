@@ -14,7 +14,7 @@ namespace UI
 
         [SerializeField] private TMP_Text playerLastAction;
         [SerializeField] private TMP_Text enemyLastAction;
-        
+
         [SerializeField] private TMP_Text stateText;
 
         [SerializeField] public Button attackButton;
@@ -31,20 +31,32 @@ namespace UI
                 Destroy(gameObject);
             }
         }
-        
+
         public void Start()
         {
-            attackButton.onClick.AddListener(Attack);
+            attackButton.onClick.AddListener(PlayAttackTurn);
         }
 
-        private void Attack()
+        private void PlayAttackTurn()
         {
             attackButton.interactable = false;
             StartCoroutine(CombatManager.Instance.RunNextTurn());
         }
 
-        public void SetPlayerLastAttack(int attack) => playerLastAction.text = $"Player last attack: {attack}";
-        public void SetEnemyLastAttack(int attack) => enemyLastAction.text = $"Enemy last attack: {attack}";
+        public void SetLastAttack(int attack, bool isPlayer)
+        {
+            if (isPlayer)
+            {
+                SetPlayerLastAttack(attack);
+            }
+            else
+            {
+                SetEnemyLastAttack(attack);
+            }
+        }
+
+        private void SetPlayerLastAttack(int attack) => playerLastAction.text = $"Player last attack: {attack}";
+        private void SetEnemyLastAttack(int attack) => enemyLastAction.text = $"Enemy last attack: {attack}";
         public void SetTurnText(int turn) => combatTurn.text = $"Turn {turn}";
         public void SetStateText(CombatState combatState) => stateText.text = $"State {combatState}";
     }

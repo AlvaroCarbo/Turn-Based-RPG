@@ -15,7 +15,7 @@ namespace EditorScripts
 
             if (GUILayout.Button("Get Attack"))
             {
-                Debug.Log(myScript.GetComponent<CharacterBase>().stats.GetAttack());
+                Debug.Log(myScript.GetComponent<CharacterBase>().stats.CalculateAttack());
             }
 
             if (GUILayout.Button("Randomize Stats"))

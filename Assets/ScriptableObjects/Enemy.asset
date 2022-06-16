@@ -16,11 +16,11 @@ MonoBehaviour:
   health: 120
   mana: 20
   stamina: 50
-  luck: 0
+  luck: 10
   speed: 30
   attack: 10
   defense: 20
   resistance: 8
-  accuracy: 3
-  evasion: 5
-  critical: 10
+  accuracy: 80
+  evasion: 10
+  critical: 51
