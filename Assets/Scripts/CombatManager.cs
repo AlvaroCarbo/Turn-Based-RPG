@@ -50,21 +50,20 @@ public class CombatManager : MonoBehaviour
 
         var isFast = player.stats.speed >= enemy.stats.speed;
 
-        yield return new WaitForSeconds(0.5f);
         if (isFast)
         {
             HandleTurn(CombatState.PlayerTurn);
             yield return new WaitForSeconds(1f);
             HandleTurn(CombatState.EnemyTurn);
+            yield return new WaitForSeconds(1f);
         }
         else
         {
             HandleTurn(CombatState.EnemyTurn);
             yield return new WaitForSeconds(1f);
             HandleTurn(CombatState.PlayerTurn);
+            yield return new WaitForSeconds(1f);
         }
-
-        yield return new WaitForSeconds(0.5f);
 
         if (state != CombatState.Finished)
         {
