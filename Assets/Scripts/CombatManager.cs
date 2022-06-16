@@ -53,16 +53,16 @@ public class CombatManager : MonoBehaviour
         if (isFast)
         {
             HandleTurn(CombatState.PlayerTurn);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.5f);
             HandleTurn(CombatState.EnemyTurn);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.5f);
         }
         else
         {
             HandleTurn(CombatState.EnemyTurn);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.5f);
             HandleTurn(CombatState.PlayerTurn);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.5f);
         }
 
         if (state != CombatState.Finished)
@@ -70,31 +70,28 @@ public class CombatManager : MonoBehaviour
             state = CombatState.Waiting;
             CombatUIController.Instance.attackButton.interactable = true;
         }
-        
+
         CombatUIController.Instance.SetStateText(state);
     }
 
     private void HandleTurn(CombatState newState)
     {
-        CombatUIController.Instance.SetStateText(state);
         if (state == CombatState.Finished)
         {
             return;
         }
 
         state = newState;
-
+        
+        CombatUIController.Instance.SetStateText(state);
+        
         switch (state)
         {
             case CombatState.PlayerTurn:
-                var playerDamage = player.stats.GetAttack();
-                DecreaseHealth(enemy, playerDamage);
-                CombatUIController.Instance.SetPlayerLastAttack(playerDamage);
+                PlayerAttack();
                 break;
             case CombatState.EnemyTurn:
-                var enemyDamage = enemy.stats.GetAttack();
-                DecreaseHealth(player, enemyDamage);
-                CombatUIController.Instance.SetEnemyLastAttack(enemyDamage);
+                EnemyAttack();
                 break;
             case CombatState.Waiting:
             case CombatState.Finished:
@@ -103,15 +100,16 @@ public class CombatManager : MonoBehaviour
         }
     }
 
-
-    private void DecreaseHealth(CharacterBase character, int damage)
+    private void PlayerAttack()
     {
-        if (character.currentHealth <= 0)
-        {
-            return;
-        }
-
-        character.TakeDamage(damage);
-        character.healthBar.SetHealth(character.currentHealth);
+        var playerDamage = player.stats.GetAttack();
+        CombatUIController.Instance.SetPlayerLastAttack(enemy.TakeDamage(playerDamage) ? playerDamage : 0);
     }
+
+    private void EnemyAttack()
+    {
+        var enemyDamage = enemy.stats.GetAttack();
+        CombatUIController.Instance.SetEnemyLastAttack(player.TakeDamage(enemyDamage) ? enemyDamage : 0);
+    }
+    
 }
