@@ -9,14 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea8d852ffc860384b9d0cb4781fd0af8, type: 3}
-  m_Name: HeroAttributes
+  m_Script: {fileID: 11500000, guid: 14f01af346d24b0587913fd2e090774f, type: 3}
+  m_Name: Enemy
   m_EditorClassIdentifier: 
-  vigor: 14
-  mind: 9
-  endurance: 12
-  strength: 16
-  dexterity: 9
-  intelligence: 7
-  faith: 8
-  arcane: 11
+  level: 1
+  health: 120
+  mana: 20
+  stamina: 50
+  luck: 0
+  speed: 30
+  attack: 10
+  defense: 20
+  resistance: 8
+  accuracy: 3
+  evasion: 5
+  critical: 10
