@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UI;
 using UnityEngine;
 using Random = System.Random;
@@ -22,7 +23,7 @@ public class CombatManager : MonoBehaviour
 
     [Space] [Header("Combat Settings")] public PlayerBase player;
     public EnemyBase enemy;
-
+    
 
     private void Awake()
     {
@@ -49,7 +50,7 @@ public class CombatManager : MonoBehaviour
         CombatUIController.Instance.SetTurnText(turn++);
 
         var isFast = player.stats.speed >= enemy.stats.speed;
-
+        
         if (isFast)
         {
             HandleTurn(CombatState.PlayerTurn);
@@ -100,7 +101,7 @@ public class CombatManager : MonoBehaviour
         }
     }
 
-    private void Attack(CharacterBase attacker, CharacterBase defender)
+    private static void Attack(CharacterBase attacker, CharacterBase defender)
     {
         Debug.Log($"==============={attacker.name} Attacks to {defender.name}================");
         var damage = attacker.stats.CalculateAttack();
