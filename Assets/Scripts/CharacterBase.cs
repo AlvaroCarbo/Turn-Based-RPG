@@ -20,9 +20,9 @@ public abstract class CharacterBase : MonoBehaviour
         SetHealthText();
     }
 
-    public void SetHealthText()
+    private void SetHealthText()
     {
-        healthText.text = currentHealth.ToString();
+        healthText.text = $"Current health: {currentHealth}";
     }
 
     private void SetMaxHealth() => currentHealth = (int) stats.health;

@@ -43,8 +43,8 @@ namespace UI
             StartCoroutine(CombatManager.Instance.RunNextTurn());
         }
 
-        public void SetPlayerLastAttack(int attack) => playerLastAction.text = $"Player Attack: {attack}";
-        public void SetEnemyLastAttack(int attack) => enemyLastAction.text = $"Enemy Attack: {attack}";
+        public void SetPlayerLastAttack(int attack) => playerLastAction.text = $"Player last attack: {attack}";
+        public void SetEnemyLastAttack(int attack) => enemyLastAction.text = $"Enemy last attack: {attack}";
         public void SetTurnText(int turn) => combatTurn.text = $"Turn {turn}";
         public void SetStateText(CombatState combatState) => stateText.text = $"State {combatState}";
     }

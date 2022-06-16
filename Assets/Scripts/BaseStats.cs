@@ -5,31 +5,33 @@ using UnityEngine;
 public class BaseStats : ScriptableObject
 {
     public int level;
-    [Space] [Header("Base Stats")] public float health;
-    public float mana;
-    public float stamina;
-    public float luck;
+    [Space] [Header("Base Stats")] 
+    public float health;
+    [HideInInspector] public float mana;
+    [HideInInspector] public float stamina;
+    [HideInInspector] public float luck;
     public float speed;
     public int attack;
-    public float defense;
-    public float resistance;
-    public float accuracy;
+    [HideInInspector] public float defense;
+    [HideInInspector] public float resistance;
+    [HideInInspector] public float accuracy;
     public float evasion;
-    [Range(0, 100)] 
-    public float critical;
+    [Range(0, 100)] public float critical;
 
     public List<float> GetStats()
     {
-        return new List<float> {health, mana, stamina, luck, speed, attack, defense, resistance, accuracy, evasion, critical};
+        return new List<float>
+            {health, mana, stamina, luck, speed, attack, defense, resistance, accuracy, evasion, critical};
     }
-    
+
     public int GetAttack()
     {
-        var random = Random.Range(0, 100); 
+        var random = Random.Range(0, 100);
         if (random <= critical)
         {
             return attack * 2;
         }
+
         return attack;
     }
 }

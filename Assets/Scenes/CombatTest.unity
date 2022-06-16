@@ -363,6 +363,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4637796036711436330, guid: 1f68446f40bd7ec4f8d2c39109c71a28, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4637796036711436331, guid: 1f68446f40bd7ec4f8d2c39109c71a28, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4637796036711436331, guid: 1f68446f40bd7ec4f8d2c39109c71a28, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 4637796036711436331, guid: 1f68446f40bd7ec4f8d2c39109c71a28, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f68446f40bd7ec4f8d2c39109c71a28, type: 3}
 --- !u!224 &46887461 stripped
@@ -5024,7 +5040,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Turn 0
+  m_text: State
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7636,6 +7652,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4637796036711436330, guid: 1f68446f40bd7ec4f8d2c39109c71a28, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4637796036711436331, guid: 1f68446f40bd7ec4f8d2c39109c71a28, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4637796036711436331, guid: 1f68446f40bd7ec4f8d2c39109c71a28, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 4637796036711436331, guid: 1f68446f40bd7ec4f8d2c39109c71a28, type: 3}
       propertyPath: m_Color.b
       value: 0
@@ -7648,6 +7676,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4637796036711436331, guid: 1f68446f40bd7ec4f8d2c39109c71a28, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: 4030fc2e096bf18499daefa06903288f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f68446f40bd7ec4f8d2c39109c71a28, type: 3}
 --- !u!224 &1843662811 stripped
