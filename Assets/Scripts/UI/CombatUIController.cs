@@ -57,7 +57,7 @@ namespace UI
 
         private void SetPlayerLastAttack(int attack) => playerLastAction.text = $"Player last attack: {attack}";
         private void SetEnemyLastAttack(int attack) => enemyLastAction.text = $"Enemy last attack: {attack}";
-        public void SetTurnText(int turn) => combatTurn.text = $"Turn {turn}";
+        public void SetTurnText(int turn) => combatTurn.text = $"Turn: {turn}";
         public void SetStateText(CombatState combatState) => stateText.text = $"State {combatState}";
     }
 }
