@@ -501,7 +501,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.778004, y: 1}
+    m_SensorSize: {x: 0.56296295, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1202,6 +1202,19 @@ MonoBehaviour:
   stats: {fileID: 11400000, guid: 2ef314b673a60c34fb91e48903b23775, type: 2}
   healthBar: {fileID: 174516823}
   healthText: {fileID: 1853861308}
+  anim: {fileID: 1705715185}
+--- !u!114 &1705715185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705715181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f59c5b8597d74034c83ed4d93dc02855, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1720102181
 GameObject:
   m_ObjectHideFlags: 0
@@ -1363,7 +1376,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 41.8
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1498,7 +1511,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 41.8
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1633,7 +1646,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3446,6 +3459,7 @@ MonoBehaviour:
   stats: {fileID: 11400000, guid: 34767c1e6fdf8804584f29966ac4a1b9, type: 2}
   healthBar: {fileID: 2701606770303355467}
   healthText: {fileID: 1831825593}
+  anim: {fileID: 4032404870894054464}
 --- !u!224 &4120988452003335767
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4184,7 +4198,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

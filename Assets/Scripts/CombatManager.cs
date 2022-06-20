@@ -117,5 +117,6 @@ public class CombatManager : MonoBehaviour
         Debug.Log($"{defender.name} took  {takeDamage} damage");
         CombatUIController.Instance.SetLastAttack(takeDamage ? damage : 0, attacker.name == "Player");
         Debug.Log($"==============={attacker.name} Attacks to {defender.name}================");
+        attacker.AttackAnim();
     }
 }

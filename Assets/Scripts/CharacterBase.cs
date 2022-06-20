@@ -13,6 +13,8 @@ public abstract class CharacterBase : MonoBehaviour
     
     public TMP_Text healthText;
 
+    public AnimatorController anim;
+
     private void Start()
     {
         SetMaxHealth();
@@ -49,5 +51,7 @@ public abstract class CharacterBase : MonoBehaviour
     private bool AvoidDamage() => Random.Range(0, 100) <= stats.evasion;
     
     private void Die() => CombatManager.Instance.state = CombatState.Finished;
+
+    public void AttackAnim() { anim.AnimAttack(); }
     
 }
