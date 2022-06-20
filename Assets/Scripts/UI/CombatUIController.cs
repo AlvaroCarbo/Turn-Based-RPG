@@ -18,6 +18,8 @@ namespace UI
         [SerializeField] private TMP_Text stateText;
 
         [SerializeField] public Button attackButton;
+        [SerializeField] public Animator anim;
+
 
 
         private void Awake()
@@ -34,6 +36,8 @@ namespace UI
 
         public void Start()
         {
+            playerLastAction.gameObject.SetActive(false);
+            enemyLastAction.gameObject.SetActive(false);
             attackButton.onClick.AddListener(PlayAttackTurn);
         }
 
@@ -47,17 +51,37 @@ namespace UI
         {
             if (isPlayer)
             {
+                StartCoroutine(showTextUIPlayer());
                 SetPlayerLastAttack(attack);
+                
             }
             else
             {
+                StartCoroutine(showTextUIEnemy());
                 SetEnemyLastAttack(attack);
+                
             }
         }
 
-        private void SetPlayerLastAttack(int attack) => playerLastAction.text = $"Player last attack: {attack}";
-        private void SetEnemyLastAttack(int attack) => enemyLastAction.text = $"Enemy last attack: {attack}";
+        private void SetPlayerLastAttack(int attack) => playerLastAction.text = $"{attack}";
+        private void SetEnemyLastAttack(int attack) => enemyLastAction.text = $"{attack}";
         public void SetTurnText(int turn) => combatTurn.text = $"Turn: {turn}";
         public void SetStateText(CombatState combatState) => stateText.text = $"State {combatState}";
+
+        IEnumerator showTextUIPlayer() {
+            yield return new WaitForSeconds(0.1f);           
+            playerLastAction.gameObject.SetActive(true);  
+            yield return new WaitForSeconds(1f);
+            playerLastAction.gameObject.SetActive(false);
+            yield return new WaitForSeconds(0.1f);
+        }
+        
+        IEnumerator showTextUIEnemy() {
+            yield return new WaitForSeconds(0.1f);
+            enemyLastAction.gameObject.SetActive(true);
+            yield return new WaitForSeconds(1f);
+            enemyLastAction.gameObject.SetActive(false);
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 }
